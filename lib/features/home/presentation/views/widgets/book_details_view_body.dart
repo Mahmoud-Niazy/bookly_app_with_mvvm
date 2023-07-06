@@ -1,7 +1,7 @@
+import 'package:bookly_app_with_mvvm/features/home/data/models/book_model.dart';
 import 'package:bookly_app_with_mvvm/features/home/presentation/views/widgets/auther_name.dart';
 import 'package:bookly_app_with_mvvm/features/home/presentation/views/widgets/book_item_image.dart';
 import 'package:bookly_app_with_mvvm/features/home/presentation/views/widgets/free_preview_in_book_details_view.dart';
-import 'package:bookly_app_with_mvvm/features/home/presentation/views/widgets/list_of_featured_books.dart';
 import 'package:bookly_app_with_mvvm/features/home/presentation/views/widgets/price_in_book_details_view.dart';
 import 'package:bookly_app_with_mvvm/features/home/presentation/views/widgets/rating.dart';
 import 'package:bookly_app_with_mvvm/features/home/presentation/views/widgets/similar_books_text.dart';
@@ -9,9 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'book_name.dart';
 import 'custom_book_details_app_bar.dart';
+import 'list_of_similar_books.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  final BookItemModel? book;
+
+  const BookDetailsViewBody({
+    super.key,
+    required this.book,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +27,19 @@ class BookDetailsViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              CustomBookDetailsAppBar(),
+              const CustomBookDetailsAppBar(),
               SizedBox(
                 height: MediaQuery.of(context).size.height * .3.h,
-                child: const BookItemImage(),
+                child: BookItemImage(image: book!.image),
               ),
               SizedBox(
                 height: 20.h,
               ),
-              const BookName(),
+               BookName(bookName: book!.bookName),
               SizedBox(
                 height: 7.h,
               ),
-              const AutherName(),
+               AuthorName(authorName: book!.author),
               SizedBox(
                 height: 7.h,
               ),
@@ -41,11 +47,13 @@ class BookDetailsViewBody extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  PriceInBookDetailsView(),
-                  FreePreviewInBookDetailsView(),
+                  const PriceInBookDetailsView(),
+                  FreePreviewInBookDetailsView(
+                    link: book!.previewUrl,
+                  ),
                 ],
               ),
               SizedBox(
@@ -57,7 +65,7 @@ class BookDetailsViewBody extends StatelessWidget {
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * .25.h,
-                child: ListOfFeaturedBooks(),
+                child: const ListOfSimilarBooks(),
               ),
             ],
           ),

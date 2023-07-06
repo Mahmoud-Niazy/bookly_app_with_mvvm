@@ -1,9 +1,11 @@
+import 'package:bookly_app_with_mvvm/core/api_services/api_services.dart';
 import 'package:bookly_app_with_mvvm/core/utils/colors.dart';
 import 'package:bookly_app_with_mvvm/core/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main(){
+void main()async{
+  await ApiServices.initDio();
   runApp(const BooklyApp());
 }
 

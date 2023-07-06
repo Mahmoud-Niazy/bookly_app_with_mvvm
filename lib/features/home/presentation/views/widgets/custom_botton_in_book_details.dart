@@ -8,19 +8,21 @@ class CustomButtonInBookDetails extends StatelessWidget {
    final BorderRadiusGeometry border;
    final Color color ;
    final Color textColor ;
+   final void Function()? onPressed ;
 
-  const CustomButtonInBookDetails({
+   const CustomButtonInBookDetails({
     required this.text,
     required this.border,
     required this.color,
     required this.textColor,
     super.key,
+    this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPressed,
       splashColor: Colors.grey,
       child: Container(
         width: 170.w,

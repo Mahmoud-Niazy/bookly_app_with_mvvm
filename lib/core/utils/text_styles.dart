@@ -36,7 +36,8 @@ abstract class AppStyles{
 
   );
   static TextStyle? textStyle20 = const TextStyle(
-    // style in tiltle in home view (Newest Books)
+    // style in tiltle in home and details views (Newest Books) && (read similar books)
+
     fontSize: 20,
     fontWeight: FontWeight.w500,
 

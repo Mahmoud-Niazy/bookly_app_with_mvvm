@@ -64,7 +64,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       AppDurations.pageTransitionDuration,
         (){
-        navigate(route: 'HomeView', context: context, page: HomeView());
+        navigate(route: 'HomeView', context: context, page: const HomeView());
         }
     );
   }
