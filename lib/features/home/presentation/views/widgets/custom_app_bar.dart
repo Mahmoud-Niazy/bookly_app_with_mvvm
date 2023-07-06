@@ -1,5 +1,7 @@
+import 'package:bookly_app_with_mvvm/core/navigation.dart';
 import 'package:bookly_app_with_mvvm/core/utils/assets_data.dart';
 import 'package:bookly_app_with_mvvm/core/widgets/icon_button.dart';
+import 'package:bookly_app_with_mvvm/features/home/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,7 +24,13 @@ class CustomAppBar extends StatelessWidget {
           ),
           const Spacer(),
           CustomIconButton(
-            onPressed: () {},
+            onPressed: () {
+              navigate(
+                route: 'SearchView',
+                context: context,
+                page: const SearchView(),
+              );
+            },
             icon: FontAwesomeIcons.magnifyingGlass,
           ),
         ],

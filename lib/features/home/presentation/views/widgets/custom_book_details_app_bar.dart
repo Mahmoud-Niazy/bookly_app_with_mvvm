@@ -1,3 +1,4 @@
+import 'package:bookly_app_with_mvvm/core/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,7 +16,9 @@ class CustomBookDetailsAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CustomIconButton(
-            onPressed: () {},
+            onPressed: () {
+              navigatePop(context: context);
+            },
             icon: Icons.clear,
             size: 22,
           ),

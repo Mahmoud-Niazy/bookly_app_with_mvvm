@@ -1,4 +1,5 @@
 import 'package:bookly_app_with_mvvm/features/home/presentation/views/book_details_view.dart';
+import 'package:bookly_app_with_mvvm/features/home/presentation/views/search_view.dart';
 import 'package:bookly_app_with_mvvm/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ abstract class AppRoutes{
     '/': (context) =>  const SplashView(),
     'HomeView' : (context) => const HomeView(),
     'BookDetailsView' : (context) => const BookDetailsView(),
+    'SearchView' : (context) => const SearchView(),
   };
 
 }
