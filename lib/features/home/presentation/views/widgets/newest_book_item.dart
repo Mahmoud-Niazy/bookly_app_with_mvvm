@@ -48,8 +48,9 @@ class NewestBookItem extends StatelessWidget {
                     height: 10.h,
                   ),
                    AuthorName(authorName: book.author),
-                  SizedBox(
-                    height: 20.h,
+                  const Expanded(
+                    child: SizedBox(
+                    ),
                   ),
                   Row(
                     children: [
